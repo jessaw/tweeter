@@ -1,10 +1,11 @@
+/*  The background for the header */
 #header {
 height: 400px;
 width: 100%;
 background-color: #c549bd;
 background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
 }
-
+/* The avatar image */
 #avatar {
     display: block;
     margin-left: auto;
@@ -13,7 +14,7 @@ background-image:url("https://www.transparenttextures.com/patterns/45-degree-fab
     position: relative;
     top: 130px;
   }
-
+/* Name of the profile */
 #name {
  display: block;
     text-align: center;
