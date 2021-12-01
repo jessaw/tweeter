@@ -10,14 +10,29 @@ html {
   box-sizing: inherit;
 }
 
+main.container {
+  background-color: #c549bd;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+ 
+}
+
+
+p{
+  font-family: Source Sans Pro, sans-serfif;
+
+}
 /*
  * Global layout stuff
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: #ffff;
+  background-color: #c549bd;
+  /* background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); */ I want to see the division in the webpage,add the background image when your done
   font-size: 24px;
+  font-family: Source Sans Pro;
 }
 
 /*
