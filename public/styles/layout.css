@@ -9,7 +9,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
+/* Main body of the container */
 main.container {
   background-color: #c549bd;
   width:90%;

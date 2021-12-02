@@ -1,3 +1,4 @@
+/* navigation bar */
 #navbar{
     position:fixed;
     height: 120px;
@@ -32,7 +33,7 @@
    position:relative;
    float:right;
    top:50px;
-   margin-left:35px;
+   left:7%;
    
   }
 
