@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// Returning tweet element in HTML strucutre 
 const createTweetElement = function (tweet) {
     let $tweet =
         ` <article class=" article-header">
@@ -29,9 +30,9 @@ console.log($tweet);
 
 const renderTweets = function (tweets) {
     $('tweets-container').empty();
-    for (const tweet of tweets) {
+    for (let tweet of tweets) {
         const result = createTweetElement(tweet);
-        $(.'tweet-container').prepend(result);
+        $('tweet-container').prepend(result);
     }
 }
-document.body.innerHTML = markup;
+

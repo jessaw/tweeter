@@ -1,6 +1,6 @@
+// The code is for the character counter
 $(document).ready(function () {
-    console.log('jess')
-    $('.textarea').keyup(function () {
+    $('#tweet-text').keyup(function () {
         var txtlength = $(this).val().length;
 
         $('.counter').text(140 - txtlength);
