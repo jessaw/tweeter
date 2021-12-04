@@ -64,10 +64,8 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <p> </p>
-    <br>
-    <p> </p>
-
+    <span class="errors" id="error"></span>
+    <form method="POST" action="/tweets" class="tweet-form"></form>
     <section class="new-tweet">
       <h2 class="composetweet"> Compose Tweet</h2>
       <form>
@@ -79,28 +77,10 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
+      <div class="tweet-container">
+      </div>
     </section>
 
-    <!-- <article class=" article-header">
-      <article class="firsttweet">
-        <i class="far fa-smile-beam"></i>
-        <p>If I have seen further it is by standing on the shoulders of giants</p>
-        <textarea name="text" id="tweet-text"></textarea>
-        <span class="icons"><i class="fa-solid fa-heart"></i></span>
-        <span class="icons"><i class="fa-solid fa-retweet"></i></span>
-        <span class="icons"><i class="fa-solid fa-flag"></i></span>
-        <span class="need_to_be_rendered" datetime="2021-11-29T09:24:17Z">November 29, 2021</span>
-      </article>
-      <br>
-      <article class="firsttweet">
-        <i class="far fa-grin-stars"></i>
-        <p>I cannot believe it snowed today and yesterday. It is so cold.</p>
-        <textarea name="text" id="tweet-text"></textarea>
-        <span class="icons"><i class="fa-solid fa-heart"></i></span>
-        <span class="icons"><i class="fa-solid fa-retweet"></i></span>
-        <span class="icons"><i class="fa-solid fa-flag"></i></span>
-        <span class="need_to_be_rendered" datetime="2021-11-11T09:24:17Z">November 11, 2021</span>
-      </article> -->
   </main>
 </body>
 
