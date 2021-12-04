@@ -44,48 +44,45 @@ const renderTweets = function (tweets) {
 
 const createTweetElement = function (tweet) {
     let $tweet =
-        ` <article id="article-header">
-            <header class="firsttweet">
-                <img src="${escape(tweet.user.avatars)}">
-                <span> class ="username">${escape(tweet.user.name)} </span>
-                <h3 class ="userhandle">${escape(tweet.user.handle)}</h3>
-            </header>
-            <section>
-            <p class="content">${escape(tweet.content.text)}</p>
-            
-            <footer>
-                <span>
+        ` <div id="article-header">
+            <div class="firsttweet">
+                <img src="${tweet.user.avatars}"/>
+                <span>${tweet.user.name} </span>
+                <span>${tweet.user.handle}</span>
+            </div>
+            <article id= tweet-content>
+            <p>${tweet.content.text}</p>
+            </article>
+            <footer class ="tweet-footer">
+            <span>${tweet.created_at}</span>
                     <i class="fa-solid fa-heart"></i>
                     <i class="fa-solid fa-retweet"></i>
                     <i class="fa-solid fa-flag"></i>
-                </span>
-                <p class="date">${(tweet.created_at)}</p>
             </footer>
-        </article>`
+        </div>`
     // console.log($tweet);
     return $tweet;
 };
 
 $(document).ready(function () {
     renderTweets(data);
+
 });
 
-//renderTweets(data);
 
 
-// var post = function () {
-//     $(".tweet-form").submit(function (event) {
-//         event.preventDefault();
-//         if ('#tweet-text').val().length > 140 {
-//             $(".errors").slideDown("slow");
-//         } else if $('#tweet-text').val().length === 0) {
-//             $(".errors").slideDown("slow");
-//         } else {
-//             $.ajax({
-//                 url: "/tweets",
-//                 method: "POST",
-//                 data: $(this).seralize()
-//             })
-//         }
 
-//     }
+var post = function () {
+    $(".tweet-container").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/tweets",
+            data: $(this).serialize(), // serializes form data =
+            sucess: function (data) {
+                alert(data);
+            }
+        })
+    })
+}
+console.log(data);
