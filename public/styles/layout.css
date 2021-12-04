@@ -11,7 +11,9 @@ html {
 }
 /* Main body of the container */
 main.container {
-  background-color: #c549bd;
+  background-color:orange;
+  background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
   width:90%;
   margin-left:auto;
   margin-right:auto;
@@ -29,8 +31,7 @@ p{
 
 body {
   color: #ffff;
-  background-color: #c549bd;
-  /* background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png"); */ I want to see the division in the webpage,add the background image when your done
+  background-color:orange;
   font-size: 24px;
   font-family: Source Sans Pro;
 }

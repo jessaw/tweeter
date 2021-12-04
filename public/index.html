@@ -34,6 +34,15 @@
 
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <!-- Page Reload after 30 seconds -->
+  <script>
+    $(document).ready(function () {
+      setInterval('refreshPage()', 30000)
+    });
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
   <!-- App JS -->
 
 
@@ -77,6 +86,10 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
+      <div class="errors">
+        <p id="empty-tweet">Please Enter Text</p>
+        <p id="character-count"> Please reduce character count</p>
+      </div>
       <div class="tweet-container">
       </div>
     </section>
