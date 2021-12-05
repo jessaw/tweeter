@@ -2,9 +2,6 @@
 
 A simple single-page AJAX Twitter clone that uses JQuery, HTML5 and CSS to help students get more comfortable with front-end development.
 
-## Getting Started
-
-
 ## Dependencies
 
 "body-parser": "^1.15.2",
