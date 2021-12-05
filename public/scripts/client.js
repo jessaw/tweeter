@@ -5,7 +5,6 @@
  */
 // Returning tweet element in HTML strucutre 
 
-
 const data = [
     {
         "user": {
@@ -49,9 +48,10 @@ const createTweetElement = function (tweet) {
                 <img src="${tweet.user.avatars}"/>
                 <span class="username">${tweet.user.name}</span>
                 <span class="handle">${tweet.user.handle}</span>
+                <hr class="solid">
             </div>
-            <article id= "tweet-conten"t>
-            <p>${tweet.content.text}</p>
+            <article id= "tweet-content">
+            <p class= "content">${tweet.content.text}</p>
             </article>
             <footer class ="tweet-footer">
             <span>${tweet.created_at}</span>
