@@ -47,7 +47,7 @@ const renderTweets = function (tweets) {
 };
 
 
-
+//use ajax for get request
 const loadTweets = function () {
     $.ajax({
         method: "GET",
@@ -58,7 +58,7 @@ const loadTweets = function () {
             renderTweets(tweets);
         });
 }
-
+// use ajax to send a POST request
 $(document).ready(() => {
     $('#error-message').hide();
     $(".tweets-container").val("");
