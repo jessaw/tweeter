@@ -4,12 +4,17 @@
     position:fixed;
     height: 120px;
     width: 100%;
-    background-color:#4056A1 ;
+    background-color:royalblue ;
     color:#ffff;
     padding-left: 1.5em;
     padding-right:1.5em;
-
     flex-direction: column;
+    z-index: 1;
+
+
+
+
+    
 }
 
 
@@ -20,7 +25,6 @@
     position:relative;
     top:30px;
 
-   
   }
   #WriteTweet {
     font-family: sans-serif;
@@ -31,9 +35,11 @@
   }
 
 
-  #navbar .downarrow {
+ 
+ #downarrow {
   color:red;
-   position:relative;
-   top:25px;
-   left: 72%;
+  position:absolute;
+  top:55px;
+  left: 90%;
+
   }

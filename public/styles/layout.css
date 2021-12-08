@@ -6,35 +6,34 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
 /* Main body of the container */
 main.container {
-  background-color:#f4f1ec;;
-  background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-  display:flex;
+  background-color: #f4f1ec;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  display: flex;
   width: 90%;
   flex-direction: column;
 }
 
-
-
-p{
+p {
   font-family: Source Sans Pro, sans-serfif;
-
 }
+
 /*
  * Global layout stuff
  */
-
 body {
   color: #ffff;
-  background-color:#f4f1ec;
+  background-color: #f4f1ec;
   font-size: 24px;
   font-family: Source Sans Pro;
-  background-image:url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-  flex-direction:column;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  flex-direction: column;
 }
 
 /*

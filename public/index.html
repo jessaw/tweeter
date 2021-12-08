@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -58,38 +60,36 @@
 
     <span class="title">Tweeter</span>
     <span id="WriteTweet"> <b> Write</b> a new tweet</span>
-    <span class="downarrow"><i class="fas fa-angle-double-down"></i> </span>
+    <i id="downarrow" class="fas fa-angle-double-down"></i>
   </nav>
 
   <header id="header">
-    <div class=box>
-      <img id="avatar" src="/images/profile-hex.png">
 
-      <br>
-      <div>
-        <h2 id="name">Jessica Aweya</h2>
-      </div>
+    <img id="avatar" src="/images/profile-hex.png">
+    <br>
+    <div>
+      <h2 id="name">Jessica Aweya</h2>
     </div>
+
   </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
 
-    <form method="POST" action="/tweets" class="tweet-form"></form>
-    <section class="new-tweet">
-      <h2 class="composetweet"> </h2>
-      <form>
+    <form method="POST" action="/tweets" id="tweet-form">
+      <div class="error-message"> </div>
+      <section class="new-tweet">
+        <h2 class="composetweet"> </h2>
         <label class="tweet" for="tweet-text">What are you humming about?</label>
-
         <textarea name="text" id="tweet-text"></textarea>
         <div>
           <button class="submit" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
-      </form>
+    </form>
 
-      <div class="tweet-container">
-      </div>
+    <div class="tweet-container">
+    </div>
     </section>
 
   </main>

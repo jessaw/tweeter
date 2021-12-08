@@ -39,6 +39,12 @@ output.counter{
 }
 
 
+.solidline{
+    position:relative;
+    top:50px;
+
+}
+
 /* Tweet boxes */
 .firsttweet{
     border: 2px solid black;
@@ -61,14 +67,18 @@ output.counter{
 /* content inside twetter boxes */
 .username {
     position: relative;
-top:-25px;
-color: black;
+    top:-25px;
+    color: black;
 
 }
 /* content inside tweeter boxes */
 .content {
     color:black;
-    bottom:50px;
+    position: relative;
+top:-70px; 
+font-size: 16px;
+left: 130px;
+overflow-wrap: break-word;
  
 }
 
@@ -80,11 +90,7 @@ color: black;
     float: right;
     align-self:center;
     position: relative;
-bottom: 30%;
+    bottom: 50%;
+    justify-content: space-between;
 }
 
-p { 
-    display: flex;
-  font-size: 16px;
-  top:70%;
-}

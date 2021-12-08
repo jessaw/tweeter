@@ -1,39 +1,38 @@
 /* navigation bar */
 @media screen and (max-width: 1600px) and (min-width: 668px) {
   #navbar {
-    position:fixed;
+    position: fixed;
     height: 120px;
     width: 100%;
-    background-color:#4056A1 ;
-    color:#ffff;
+    background-color: royalblue;
+    color: #ffff;
     padding-left: 1.5em;
-    padding-right:1.5em;
-
+    padding-right: 1.5em;
     flex-direction: column;
-}
-
-
+    z-index: 1;
+  }
 }
 #navbar .title {
-    font-family: Bungee, sans-serif;
-    font-size: 2.5em;
-    position:relative;
-    top:30px;
+  font-family: Bungee, sans-serif;
+  font-size: 2.5em;
+  position: relative;
+  top: 30px;
+}
 
-   
-  }
-  #WriteTweet {
-    font-family: sans-serif;
-    font-size: 20px;
-    float:right;
-    padding-right: 1.5em; 
-    margin-top:25px;
-  }
+#WriteTweet {
+  font-family: sans-serif;
+  font-size: 20px;
+  float: right;
+  padding-right: 1.5em;
+  margin-top: 25px;
+}
 
-
-  #navbar .downarrow {
-  color:red;
-   position:relative;
-   top:25px;
-   left: 72%;
-  }
+#downarrow {
+  color: red;
+  position: absolute;
+  top: 55px;
+  left: 90%;
+}
+#downarrow:hover{
+  color: aqua;
+}

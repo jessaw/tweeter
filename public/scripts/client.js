@@ -5,39 +5,13 @@
  */
 // Returning tweet element in HTML strucutre 
 
-const data = [
-    {
-        "user": {
-            "name": "Newton",
-            "avatars": "https://i.imgur.com/73hZDYK.png"
-            ,
-            "handle": "@SirIsaac"
-        },
-        "content": {
-            "text": "If I have seen further it is by standing on the shoulders of giants"
-        },
-        "created_at": 1461116232227
-    },
-    {
-        "user": {
-            "name": "Descartes",
-            "avatars": "https://i.imgur.com/nlhLi3I.png",
-            "handle": "@rd"
-        },
-        "content": {
-            "text": "Je pense , donc je suis"
-        },
-        "created_at": 1461113959088
-    }
-]
 
-const renderTweets = function (tweets) {
-    $('.tweet-container').empty();
 
-    for (let tweet of tweets) {
-        const result = createTweetElement(tweet);
-        $('.tweet-container').prepend(result);
-    }
+//Prevent Cross scripting
+const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
 };
 
 
@@ -46,15 +20,15 @@ const createTweetElement = function (tweet) {
         ` <div id="article-header">
             <div class="firsttweet">
                 <img src="${tweet.user.avatars}"/>
-                <span class="username">${tweet.user.name}</span>
+                <span class="username">${escape(tweet.user.name)}</span>
                 <span class="handle">${tweet.user.handle}</span>
-                <hr class="solid">
+                <hr class="solidline">
             </div>
             <article id= "tweet-content">
-            <p class= "content">${tweet.content.text}</p>
+            <p class= "content">${escape(tweet.content.text)}</p>
             </article>
             <footer class ="tweet-footer">
-            <span>${tweet.created_at}</span>
+            <span id="time">${timeago.format(tweet.created_at)}</span>
                     <i class="fa-solid fa-heart"></i>
                     <i class="fa-solid fa-retweet"></i>
                     <i class="fa-solid fa-flag"></i>
@@ -64,60 +38,49 @@ const createTweetElement = function (tweet) {
     return $tweet;
 };
 
-$(document).ready(function () {
-    renderTweets(data);
+const renderTweets = function (tweets) {
+    $('.tweet-container').empty();
+    for (let tweet of tweets) {
+        const result = createTweetElement(tweet);
+        $('.tweet-container').prepend(result);
+    }
+};
 
-});
-
-const post = function () {
-    $(".tweet-container").submit(function (event) {
-        event.preventDefault();
-        $.ajax({
-            method: "POST",
-            url: "/tweets",
-            data: $(this).serialize(), // serializes form data =
-            sucess: function (data) {
-                alert(data);
-            }
-        })
-    })
-}
 
 
 const loadTweets = function () {
     $.ajax({
-        dataType: 'json',
         method: "GET",
         url: "/tweets",
-        data: "data",
-        success: function (data) {
-            loadTweets();
-            $("tweet-text").val("");
-            $(".counter").text(140)
+    })
+        .then((tweets) => {
+            console.log(tweets);
+            renderTweets(tweets);
+        });
+}
+
+$(document).ready(() => {
+    $('#error-message').hide();
+    $(".tweets-container").val("");
+    loadTweets(renderTweets);
+
+    $("#tweet-form").submit(function (event) {
+        event.preventDefault();
+        if ($('#tweet-text').val().length === 0) {
+            $('.error-message').text("Please Enter Text !");
+            $('.error-message').show();
+            $(".error-message").slideDown();
+        } else if ($('#tweet-text').val().length > 140) {
+            $('.error-message').text("Tweet is more than 140 characters!");
+            $('.error-message').show();
+            $(".error-message").slideDown();
+        } else {
+            $.post("/tweets", $("#tweet-form").serialize(), () => {
+                $('#tweet-text').val("");
+                $('.error-message').hide();
+                $(".tweets-container").val("");
+                loadTweets(renderTweets);
+            });
         }
     });
-}
-loadTweets();
-
-
-//Prevent Cross scripting //
-const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-};
-
-$("form").on("submit", function (event) {
-    event.preventDefault();
-    if ($.trim($("#tweet-text").val())) {
-        $("#empty-tweet").slideDown("slow");
-    }
-    else if ($("#tweet-text").val().length > 140) {
-        $("#character-count").slideDown("slow");
-    }
-    else {
-        forminfo = $(this).serialize();
-        post(forminfo);
-    }
-
-})
+});
